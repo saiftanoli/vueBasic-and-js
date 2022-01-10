@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        const getTodos = () =>{
+            const request = new XMLHttpRequest();
+        request.addEventListener('readystatechange', () =>{
+            if(request.readyState === 4 && request.status ===200){
+                console.log(request,request.responseText);
+            }
+            else if(request.readyState ===4){
+                console.log("could not fetch data");
+            }
+        });
+        request.open('GET','https://jsonplaceholder.typicode.com/todos/');
+        request.send();
+        }
+        getTodos();
+    </script>
+</body>
+</html>

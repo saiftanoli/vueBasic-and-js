@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <click-counter></click-counter>
+    </div>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <script>
+        const app = Vue.createApp({
+            
+        }) 
+        .component('click-counter',{
+            template: '<button @click="count++">{{count}}</button>',
+            data(){
+            return{
+                count:0
+            }
+        }   
+        })
+         
+        app.mount('#app')
+    </script>
+</body>
+</html>

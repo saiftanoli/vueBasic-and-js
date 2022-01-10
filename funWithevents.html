@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+       <ul>
+           <input type="text" v-model="newItem" placeholder="add new item">
+           <label><input type="radio" v-model="newItemPriorty" value="high">high</label>
+           <label><input type="radio" v-model="newItemPriorty" value="low">low</label>
+           {{newItem}} | {{newItemPriorty}}
+           <li v-for="item in items" :key="item.id">{{item.label}}</li>
+           <strong>Priority</strong>
+           
+       </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <script>
+        var app = Vue.createApp({
+            data(){
+                return{
+                    newItem:'',
+                    newItemPriorty:'',
+                    items:[
+                        {id:1, label:'10 cups of tee'},
+                        {id:2, label:'15 cups of tee'},
+                        {id:3, label:'20 cups of tee'},
+                    ]
+                }
+            }
+        })
+        app.mount('#app')
+    </script>
+</body>
+</html>
